@@ -38,6 +38,8 @@ response of changes in PC1 and PC2.
 We simulated random voting by drawing from the uniform distribution `{-1, 0, 1}`
 for comparison. We repeated the PCA for non-WMC users and the simulated data.
 
+![A plot of PC1 and PC2 of the simulated voting pattern. Blue points represents non-WMC members. Green points represents simulated data.](pca-simulation.png?raw=true)
+
 ### Discussion
 
 [1]: https://meta.wikimedia.org/wiki/User:Mys_721tx
