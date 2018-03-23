@@ -22,7 +22,7 @@ for worksheet in workbook.worksheets:
     else:
         members_wmc = set([cell.value for cell in worksheet["A"] if cell.value])
 
-with open("votes.csv", "w") as data:
+with open("votes.csv", "w", encoding="utf-8") as data:
     csvwriter = writer(data)
 
     for vote in votes:
