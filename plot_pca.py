@@ -48,17 +48,17 @@ plt.figure(figsize=(9, 6))
 
 #print(reduced[rest])
 
-plot_rest = jitter(
-    reduced[rest]["PC1"],
-    reduced[rest]["PC2"],
+plot_rest = plt.scatter(
+    reduced[rest["Membership"]]["PC1"],
+    reduced[rest["Membership"]]["PC2"],
     c="b",
     alpha=0.4,
     label="Non-WMC"
 )
 
-plot_wmc = jitter(
-    reduced[wmc]["PC1"],
-    reduced[wmc]["PC2"],
+plot_wmc = plt.scatter(
+    reduced[wmc["Membership"]]["PC1"],
+    reduced[wmc["Membership"]]["PC2"],
     c="g",
     alpha=0.4,
     label="WMC"
@@ -67,14 +67,37 @@ plot_wmc = jitter(
 plt.xlabel("PC1")
 plt.ylabel("PC2")
 
-#plt.legend(
-#    handles=[plot_rest, plot_wmc]
-#)
+plt.legend(
+    handles=[plot_rest, plot_wmc]
+)
+
+plt.savefig("pca-2017.png", dpi=300, transparent=True)
 
 #label_point(reduced[:, 0],reduced[:, 1], reduced.columns.tolist(), plt.gca())
 
-tooltip_rest = plugins.PointHTMLTooltip(plot_rest, reduced[rest].columns.tolist())
-tooltip_wmc = plugins.PointHTMLTooltip(plot_wmc, reduced[wmc].columns.tolist())
+plt.figure()
+
+plot_rest = jitter(
+    reduced[rest["Membership"]]["PC1"],
+    reduced[rest["Membership"]]["PC2"],
+    c="b",
+    alpha=0.4,
+    label="Non-WMC"
+)
+
+plot_wmc = jitter(
+    reduced[wmc["Membership"]]["PC1"],
+    reduced[wmc["Membership"]]["PC2"],
+    c="g",
+    alpha=0.4,
+    label="WMC"
+)
+
+plt.xlabel("PC1")
+plt.ylabel("PC2")
+
+tooltip_rest = plugins.PointHTMLTooltip(plot_rest, reduced[rest["Membership"]].index.tolist())
+tooltip_wmc = plugins.PointHTMLTooltip(plot_wmc, reduced[wmc["Membership"]].index.tolist())
 
 zoom = plugins.Zoom(button=False, enabled=True)
 box_zoom = plugins.BoxZoom(button=False, enabled=True)
@@ -84,7 +107,3 @@ plugins.connect(plt.gcf(), tooltip_rest)
 plugins.connect(plt.gcf(), tooltip_wmc)
 
 mpld3.save_html(plt.gcf(), "pca-2017.html")
-
-#plt.savefig("pca-2017.png", dpi=300, transparent=True)
-
-#reduced.to_csv("test.csv")
