@@ -41,20 +41,22 @@ dataframe = pd.DataFrame.from_dict(votes)
 
 dataframe = dataframe.fillna(0)
 
-pca = PCA(n_components=2)
-
-pca.fit(dataframe.T)
-
-reduced = pd.DataFrame(
-    pca.transform(dataframe.T),
-    index=dataframe.columns,
-    columns=("PC1", "PC2")
-)
-
 wmc = pd.DataFrame(
     dataframe.columns.map(lambda x: labels[x]).values.astype(bool),
     index=dataframe.columns,
     columns=("Membership",)
+)
+
+dataframe = dataframe.T
+
+pca = PCA(n_components=2)
+
+pca.fit(dataframe)
+
+reduced = pd.DataFrame(
+    pca.transform(dataframe),
+    index=dataframe.index,
+    columns=("PC1", "PC2")
 )
 
 reduced.to_csv("pca_result.csv")
