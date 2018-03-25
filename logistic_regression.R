@@ -10,12 +10,6 @@ label_wmc <- read.csv(
 	colClasses = c("character", "logical")
 )
 
-sample <- cbind(data, label_wmc)
-
-model <- lrm(Membership ~ PC1 + PC2, data = sample)
-
-model
-
 label_zh_hans <- read.csv(
 	file = "simplified_chinese_users.csv",
 	header = TRUE,
@@ -24,7 +18,11 @@ label_zh_hans <- read.csv(
 	colClasses = c("character", "logical")
 )
 
-sample <- cbind(data, label_zh_hans)
+sample <- cbind(data, label_wmc, label_zh_hans)
+
+model <- lrm(Membership ~ PC1 + PC2, data = sample)
+
+model
 
 model <- lrm(zh_hans ~ PC1 + PC2, data = sample)
 
