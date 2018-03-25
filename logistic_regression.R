@@ -1,12 +1,42 @@
 require(rms)
 
 data <- read.csv(file = "pca_result.csv", header = TRUE, row.names = 1)
-label <- read.csv(file = "wmc_memberships.csv", header = TRUE, row.names = 1)
 
-levels(label$Membership) <- c(0, 1)
+label_wmc <- read.csv(
+	file = "wmc_memberships.csv",
+	header = TRUE,
+	row.names = 1,
+	stringsAsFactors=FALSE,
+	colClasses = c("character", "logical")
+)
 
-sample <- cbind(data, label)
+sample <- cbind(data, label_wmc)
 
 model <- lrm(Membership ~ PC1 + PC2, data = sample)
+
+model
+
+label_zh_hans <- read.csv(
+	file = "simplified_chinese_users.csv",
+	header = TRUE,
+	row.names = 1,
+	stringsAsFactors=FALSE,
+	colClasses = c("character", "logical")
+)
+
+sample <- cbind(data, label_zh_hans)
+
+model <- lrm(zh_hans ~ PC1 + PC2, data = sample)
+
+model
+
+sample <- cbind(
+	data[which(!label_wmc$Membership),],
+	label_zh_hans[!label_wmc$Membership,]
+)
+
+colnames(sample) <- c("PC1", "PC2", "zh_hans")
+
+model <- lrm(zh_hans ~ PC1 + PC2, data = sample)
 
 model
