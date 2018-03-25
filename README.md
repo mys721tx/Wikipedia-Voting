@@ -24,7 +24,7 @@ voted other than support or oppose, their vote is coded 0.
 
 We removed one invalid vote due to error in the sampling process. We
 reattributed 16 votes as the users that casted them had either changed their
-signatures or their usernames. A 23-by-233 matrix is made from the sample.
+signatures or their usernames. A 23-by-217 matrix is made from the sample.
 
 In order to obtain a lower dimension representation of the data, we used the
 `pca` function provided in `scikit-learn` to perform principle component
@@ -42,16 +42,16 @@ Logistic Regression Model
 
                        Model Likelihood     Discrimination    Rank Discrim.
                           Ratio Test           Indexes           Indexes
- Obs           226    LR chi2     107.62    R2       0.592    C       0.917
-  0            179    d.f.             2    g        3.002    Dxy     0.834
-  1             47    Pr(> chi2) <0.0001    gr      20.134    gamma   0.839
- max |deriv| 2e-08                          gp       0.276    tau-a   0.276
-                                            Brier    0.086
+ Obs           217    LR chi2     103.57    R2       0.585    C       0.918
+  0            170    d.f.             2    g        2.914    Dxy     0.835
+  1             47    Pr(> chi2) <0.0001    gr      18.431    gamma   0.840
+ max |deriv| 4e-09                          gp       0.282    tau-a   0.285
+                                            Brier    0.090
 
            Coef    S.E.   Wald Z Pr(>|Z|)
- Intercept -2.4014 0.3402 -7.06  <0.0001
- PC1        1.2506 0.2822  4.43  <0.0001
- PC2       -3.9656 0.7132 -5.56  <0.0001
+ Intercept -2.2688 0.3232 -7.02  <0.0001
+ PC1        1.1588 0.2735  4.24  <0.0001
+ PC2       -3.7367 0.6585 -5.67  <0.0001
  ```
 
 We simulated random voting by drawing from the uniform distribution `{-1, 0, 1}`
