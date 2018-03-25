@@ -36,23 +36,22 @@ We performed logistic regression in the log-likelihood of being a WMC member in
 response of changes in PC1 and PC2.
 
 ```
-
 Logistic Regression Model
 
  lrm(formula = Membership ~ PC1 + PC2, data = sample)
 
                        Model Likelihood     Discrimination    Rank Discrim.
                           Ratio Test           Indexes           Indexes
- Obs           227    LR chi2     108.53    R2       0.594    C       0.919
-  0            180    d.f.             2    g        3.074    Dxy     0.837
-  1             47    Pr(> chi2) <0.0001    gr      21.629    gamma   0.843
- max |deriv| 4e-08                          gp       0.276    tau-a   0.276
+ Obs           226    LR chi2     107.62    R2       0.592    C       0.917
+  0            179    d.f.             2    g        3.002    Dxy     0.834
+  1             47    Pr(> chi2) <0.0001    gr      20.134    gamma   0.839
+ max |deriv| 2e-08                          gp       0.276    tau-a   0.276
                                             Brier    0.086
 
            Coef    S.E.   Wald Z Pr(>|Z|)
- Intercept -2.4450 0.3483 -7.02  <0.0001
- PC1        1.4048 0.2865  4.90  <0.0001
- PC2       -4.0452 0.7425 -5.45  <0.0001
+ Intercept -2.4014 0.3402 -7.06  <0.0001
+ PC1        1.2506 0.2822  4.43  <0.0001
+ PC2       -3.9656 0.7132 -5.56  <0.0001
  ```
 
 We simulated random voting by drawing from the uniform distribution `{-1, 0, 1}`
