@@ -59,6 +59,6 @@ reduced = pd.DataFrame(
     columns=("PC1", "PC2")
 )
 
-reduced.to_csv("pca_result.csv")
+reduced.to_csv("pca_result.csv", line_terminator="\r\n")
 
-wmc.to_csv("wmc_memberships.csv")
+wmc.to_csv("wmc_memberships.csv", line_terminator="\r\n")
