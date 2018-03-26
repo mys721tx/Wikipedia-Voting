@@ -19,8 +19,7 @@ users = pd.read_csv(
     }
 )
 
-counts = pd.DataFrame()
-counts_main = pd.DataFrame()
+frames = []
 
 for username in users.index:
     print(username)
@@ -30,16 +29,10 @@ for username in users.index:
         header=0,
         index_col=0
     )
+    frames.append(count)
 
-    year_total = count.sum(axis=0)
-    year_total.name = username
-    counts = counts.append(year_total)
-    edit_main = count.loc["Main"]
-    edit_main.name = username
-    counts_main = counts_main.append(edit_main)
+counts = pd.concat(frames, keys=users.index)
 
 counts = counts.reindex(sorted(counts.columns), axis=1)
-counts_main = counts_main.reindex(sorted(counts_main.columns), axis=1)
 
 counts.to_csv("data/edit_counts.csv", line_terminator="\r\n")
-counts_main.to_csv("data/edit_counts_main.csv", line_terminator="\r\n")

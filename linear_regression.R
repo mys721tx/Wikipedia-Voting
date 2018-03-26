@@ -1,4 +1,4 @@
-data <- read.csv(file = "data/edit_counts.csv", header = TRUE, row.names = 1)
+data <- read.csv(file = "data/edit_counts_total.csv", header = TRUE, row.names = 1)
 
 label_wmc <- read.csv(
 	file = "data/wmc_memberships.csv",
@@ -33,6 +33,24 @@ model <- lm(Counts ~ Membership + zh_hans, data = sample)
 summary(model)
 
 data <- read.csv(file = "data/edit_counts_main.csv", header = TRUE, row.names = 1)
+
+sample <- cbind(data$X2017, label_wmc, label_zh_hans)
+
+colnames(sample) <- c("Counts", "Membership", "zh_hans")
+
+model <- lm(Counts ~ Membership, data = sample)
+
+summary(model)
+
+model <- lm(Counts ~ zh_hans, data = sample)
+
+summary(model)
+
+model <- lm(Counts ~ Membership + zh_hans, data = sample)
+
+summary(model)
+
+data <- read.csv(file = "data/edit_counts_wikipedia.csv", header = TRUE, row.names = 1)
 
 sample <- cbind(data$X2017, label_wmc, label_zh_hans)
 
