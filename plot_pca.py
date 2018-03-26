@@ -19,7 +19,7 @@ def jitter(x, y, s=20, c='b', marker='o', cmap=None, norm=None, vmin=None, vmax=
     return plt.scatter(rand_jitter(x), rand_jitter(y), s=s, c=c, marker=marker, cmap=cmap, norm=norm, vmin=vmin, vmax=vmax, alpha=alpha, linewidths=linewidths, verts=verts, hold=hold, **kwargs)
 
 reduced = pd.read_csv(
-    "pca_result.csv",
+    "data/pca_result.csv",
     header=0,
     index_col=0,
     dtype={
@@ -29,7 +29,7 @@ reduced = pd.read_csv(
 )
 
 wmc = pd.read_csv(
-    "wmc_memberships.csv",
+    "data/wmc_memberships.csv",
     header=0,
     index_col=0,
     dtype={
@@ -71,7 +71,7 @@ plt.legend(
     handles=[plot_rest, plot_wmc]
 )
 
-plt.savefig("pca-2017.png", dpi=300, transparent=True)
+plt.savefig("plots/pca-2017.png", dpi=300, transparent=True)
 
 #label_point(reduced[:, 0],reduced[:, 1], reduced.columns.tolist(), plt.gca())
 
@@ -106,4 +106,4 @@ box_zoom = plugins.BoxZoom(button=False, enabled=True)
 plugins.connect(plt.gcf(), tooltip_rest)
 plugins.connect(plt.gcf(), tooltip_wmc)
 
-mpld3.save_html(plt.gcf(), "pca-2017.html")
+mpld3.save_html(plt.gcf(), "docs/ca-2017.html")

@@ -30,7 +30,7 @@ In order to obtain a lower dimension representation of the data, we used the
 `pca` function provided in `scikit-learn` to perform principle component
 analysis to 2 dimensions. We obtain first two principle component, PC1 and PC2.
 
-![A plot of PC1 and PC2 of the voting pattern. Blue points represents non-WMC members. Green points represents WMC members.](pca-2017.png?raw=true)
+![A plot of PC1 and PC2 of the voting pattern. Blue points represents non-WMC members. Green points represents WMC members.](plots/pca-2017.png?raw=true)
 
 We performed logistic regression in the log-likelihood of being a WMC member in
 response of changes in PC1 and PC2.
@@ -57,7 +57,7 @@ Logistic Regression Model
 We simulated random voting by drawing from the uniform distribution `{-1, 0, 1}`
 for comparison. We repeated the PCA for non-WMC users and the simulated data.
 
-![A plot of PC1 and PC2 of the simulated voting pattern. Blue points represents non-WMC members. Green points represents simulated data.](pca-simulation.png?raw=true)
+![A plot of PC1 and PC2 of the simulated voting pattern. Blue points represents non-WMC members. Green points represents simulated data.](plots/pca-simulation.png?raw=true)
 
 ### Discussion
 

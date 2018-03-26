@@ -7,7 +7,7 @@ from csv import writer
 
 from openpyxl import load_workbook, Workbook
 
-workbook = load_workbook("WMCVotes.xlsx")
+workbook = load_workbook("data/WMCVotes.xlsx")
 
 votes = []
 
@@ -22,7 +22,7 @@ for worksheet in workbook.worksheets:
     else:
         members_wmc = set([cell.value for cell in worksheet["A"] if cell.value])
 
-with open("votes.csv", "w", encoding="utf-8") as data:
+with open("data/votes.csv", "w", encoding="utf-8") as data:
     csvwriter = writer(data)
 
     for vote in votes:

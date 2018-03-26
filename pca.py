@@ -18,7 +18,7 @@ mapping_vote = {"aye": 1, "nye": -1}
 votes = {}
 labels = {}
 
-with open("votes-2017.csv", "r", encoding="utf-8") as data:
+with open("data/votes-2017.csv", "r", encoding="utf-8") as data:
     reader = csv.reader(data)
     for row in reader:
         event, username, vote, label_raw = row
@@ -59,6 +59,6 @@ reduced = pd.DataFrame(
     columns=("PC1", "PC2")
 )
 
-reduced.to_csv("pca_result.csv", line_terminator="\r\n")
+reduced.to_csv("data/pca_result.csv", line_terminator="\r\n")
 
-wmc.to_csv("wmc_memberships.csv", line_terminator="\r\n")
+wmc.to_csv("data/wmc_memberships.csv", line_terminator="\r\n")

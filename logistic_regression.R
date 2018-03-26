@@ -1,9 +1,9 @@
 require(rms)
 
-data <- read.csv(file = "pca_result.csv", header = TRUE, row.names = 1)
+data <- read.csv(file = "data/pca_result.csv", header = TRUE, row.names = 1)
 
 label_wmc <- read.csv(
-	file = "wmc_memberships.csv",
+	file = "data/wmc_memberships.csv",
 	header = TRUE,
 	row.names = 1,
 	stringsAsFactors=FALSE,
@@ -11,7 +11,7 @@ label_wmc <- read.csv(
 )
 
 label_zh_hans <- read.csv(
-	file = "simplified_chinese_users.csv",
+	file = "data/simplified_chinese_users.csv",
 	header = TRUE,
 	row.names = 1,
 	stringsAsFactors=FALSE,

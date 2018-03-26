@@ -20,7 +20,7 @@ mapping_vote = {"aye": 1, "nye": -1}
 votes = {}
 labels = {}
 
-with open("votes-2017.csv", "r", encoding="utf-8") as data:
+with open("data/votes-2017.csv", "r", encoding="utf-8") as data:
     reader = csv.reader(data)
     for row in reader:
         event, username, vote, label_raw = row
@@ -92,4 +92,4 @@ plt.legend(
     handles=[plot_rest, plot_wmc]
 )
 
-plt.savefig("pca-simulation.png", dpi=300, transparent=True)
+plt.savefig("plots/pca-simulation.png", dpi=300, transparent=True)

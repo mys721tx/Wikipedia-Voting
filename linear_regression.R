@@ -1,7 +1,7 @@
-data <- read.csv(file = "edit_counts.csv", header = TRUE, row.names = 1)
+data <- read.csv(file = "data/edit_counts.csv", header = TRUE, row.names = 1)
 
 label_wmc <- read.csv(
-	file = "wmc_memberships.csv",
+	file = "data/wmc_memberships.csv",
 	header = TRUE,
 	row.names = 1,
 	stringsAsFactors=FALSE,
@@ -9,7 +9,7 @@ label_wmc <- read.csv(
 )
 
 label_zh_hans <- read.csv(
-	file = "simplified_chinese_users.csv",
+	file = "data/simplified_chinese_users.csv",
 	header = TRUE,
 	row.names = 1,
 	stringsAsFactors=FALSE,
@@ -32,7 +32,7 @@ model <- lm(Counts ~ Membership + zh_hans, data = sample)
 
 summary(model)
 
-data <- read.csv(file = "edit_counts_main.csv", header = TRUE, row.names = 1)
+data <- read.csv(file = "data/edit_counts_main.csv", header = TRUE, row.names = 1)
 
 sample <- cbind(data$X2017, label_wmc, label_zh_hans)
 

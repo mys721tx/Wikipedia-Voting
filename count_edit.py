@@ -11,7 +11,7 @@ import pandas as pd
 URL = "https://xtools.wmflabs.org/ec-yearcounts/zh.wikipedia.org/{}?format=csv"
 
 users = pd.read_csv(
-    "wmc_memberships.csv",
+    "data/wmc_memberships.csv",
     header=0,
     index_col=0,
     dtype={
@@ -41,5 +41,5 @@ for username in users.index:
 counts = counts.reindex(sorted(counts.columns), axis=1)
 counts_main = counts_main.reindex(sorted(counts_main.columns), axis=1)
 
-counts.to_csv("edit_counts.csv", line_terminator="\r\n")
-counts_main.to_csv("edit_counts_main.csv", line_terminator="\r\n")
+counts.to_csv("data/edit_counts.csv", line_terminator="\r\n")
+counts_main.to_csv("data/edit_counts_main.csv", line_terminator="\r\n")
