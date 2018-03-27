@@ -42,16 +42,16 @@ Logistic Regression Model
 
                        Model Likelihood     Discrimination    Rank Discrim.
                           Ratio Test           Indexes           Indexes
- Obs           217    LR chi2      97.56    R2       0.558    C       0.912
-  FALSE        170    d.f.             2    g        2.786    Dxy     0.824
-  TRUE          47    Pr(> chi2) <0.0001    gr      16.220    gamma   0.829
- max |deriv| 1e-09                          gp       0.276    tau-a   0.281
-                                            Brier    0.096
+ Obs           217    LR chi2     107.22    R2       0.594    C       0.921
+  FALSE        168    d.f.             2    g        2.983    Dxy     0.842
+  TRUE          49    Pr(> chi2) <0.0001    gr      19.748    gamma   0.847
+ max |deriv| 6e-09                          gp       0.292    tau-a   0.296
+                                            Brier    0.091
 
            Coef    S.E.   Wald Z Pr(>|Z|)
- Intercept -2.2183 0.3131 -7.08  <0.0001
- PC1        0.9601 0.2561  3.75  0.0002
- PC2       -3.6455 0.6389 -5.71  <0.0001
+ Intercept -2.1940 0.3173 -6.91  <0.0001
+ PC1        1.2003 0.2785  4.31  <0.0001
+ PC2       -3.8178 0.6620 -5.77  <0.0001
  ```
 
 We simulated random voting by drawing from the uniform distribution `{-1, 0, 1}`
