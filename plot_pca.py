@@ -106,4 +106,4 @@ box_zoom = plugins.BoxZoom(button=False, enabled=True)
 plugins.connect(plt.gcf(), tooltip_rest)
 plugins.connect(plt.gcf(), tooltip_wmc)
 
-mpld3.save_html(plt.gcf(), "docs/ca-2017.html")
+mpld3.save_html(plt.gcf(), "docs/pca-2017.html")

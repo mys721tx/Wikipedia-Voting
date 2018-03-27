@@ -7,9 +7,22 @@ from csv import writer
 
 from openpyxl import load_workbook, Workbook
 
+import pandas as pd
+
 workbook = load_workbook("data/WMCVotes.xlsx")
 
 votes = []
+
+wmc_memberships = pd.read_csv(
+    "data/wmc_list.csv",
+    header=0,
+    index_col=0,
+    dtype={
+        "Membership": bool
+    }
+)
+
+members_wmc = set(wmc_memberships.index)
 
 for worksheet in workbook.worksheets:
     if worksheet.title != "Members":
@@ -19,8 +32,6 @@ for worksheet in workbook.worksheets:
         for cell in worksheet["D"]:
             if cell.value and cell.value != "Opposers":
                 votes.append((worksheet.title, cell.value, "nye", ))
-    else:
-        members_wmc = set([cell.value for cell in worksheet["A"] if cell.value])
 
 with open("data/votes.csv", "w", encoding="utf-8") as data:
     csvwriter = writer(data)
