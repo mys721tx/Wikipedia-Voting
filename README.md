@@ -1,4 +1,4 @@
-## The Correlation between Wikimedians of Mainland China Membership and Voting Pattern in 2017 on Chinese Wikipedia
+# The Correlation between Wikimedians of Mainland China Membership and Voting Pattern in 2017 on Chinese Wikipedia
 
 By [mys_721tx][1], [PhiLiP][2]
 
@@ -9,7 +9,7 @@ released under [GNU General Public License 3.0][4].
 We investigated the correlation between Wikimedians of Mainland
 China (WMC) membership and voting pattern.
 
-### Methods
+## Methods
 
 We sampled all [community elections in 2017 on Chinese Wikipedia][5]. Community
 election is defined as an election where the community decides whether the
@@ -35,23 +35,23 @@ analysis to 2 dimensions. We obtain first two principle component, PC1 and PC2.
 We performed logistic regression in the log-likelihood of being a WMC member in
 response of changes in PC1 and PC2.
 
-```
+```R
 Logistic Regression Model
 
  lrm(formula = Membership ~ PC1 + PC2, data = sample)
 
                        Model Likelihood     Discrimination    Rank Discrim.
                           Ratio Test           Indexes           Indexes
- Obs           217    LR chi2     107.22    R2       0.594    C       0.921
-  FALSE        168    d.f.             2    g        2.983    Dxy     0.842
-  TRUE          49    Pr(> chi2) <0.0001    gr      19.748    gamma   0.847
- max |deriv| 6e-09                          gp       0.292    tau-a   0.296
-                                            Brier    0.091
+ Obs           217    LR chi2     107.73    R2       0.589    C       0.918
+  FALSE        166    d.f.             2    g        2.928    Dxy     0.836
+  TRUE          51    Pr(> chi2) <0.0001    gr      18.684    gamma   0.841
+ max |deriv| 2e-09                          gp       0.298    tau-a   0.302
+                                            Brier    0.096
 
            Coef    S.E.   Wald Z Pr(>|Z|)
- Intercept -2.1940 0.3173 -6.91  <0.0001
- PC1        1.2003 0.2785  4.31  <0.0001
- PC2       -3.8178 0.6620 -5.77  <0.0001
+ Intercept -2.0626 0.3001 -6.87  <0.0001
+ PC1        1.2297 0.2791  4.41  <0.0001
+ PC2       -3.7190 0.6354 -5.85  <0.0001
  ```
 
 We simulated random voting by drawing from the uniform distribution `{-1, 0, 1}`

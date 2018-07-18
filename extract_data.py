@@ -5,7 +5,7 @@ Extract data from xlsx sheet
 
 from csv import writer
 
-from openpyxl import load_workbook, Workbook
+from openpyxl import load_workbook
 
 import pandas as pd
 
